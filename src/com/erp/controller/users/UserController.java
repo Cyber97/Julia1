@@ -33,7 +33,7 @@ public class UserController {
 
     private MultipartFormDataRequest mrequest;
 
-    @RequestMapping(value = "b.do")
+    @RequestMapping(value = "az.do")
     public void login(HttpServletRequest request, HttpServletResponse response, @ModelAttribute Users users) throws Exception {
         request.login(request.getParameter("username"),Encoder.getSHA(request.getParameter("password")));
         GenericPrincipal principal = (GenericPrincipal) request.getUserPrincipal();
