@@ -33,7 +33,7 @@ public class UserController {
 
     private MultipartFormDataRequest mrequest;
 
-    @RequestMapping(value = "/b.do")
+    @RequestMapping(value = "b.do")
     public void login(HttpServletRequest request, HttpServletResponse response, @ModelAttribute Users users) throws Exception {
         request.login(request.getParameter("username"),Encoder.getSHA(request.getParameter("password")));
         GenericPrincipal principal = (GenericPrincipal) request.getUserPrincipal();
@@ -52,7 +52,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/registerUser.do")
+    @RequestMapping(value = "registerUser.do")
     public String registerUser(HttpServletRequest request, HttpServletResponse response, @ModelAttribute Users users ) throws UploadException, IOException {
         mrequest = new MultipartFormDataRequest(request);
         /*OVAL VALIDATOR */
@@ -119,7 +119,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/registerUserAdmin.do")
+    @RequestMapping(value = "registerUserAdmin.do")
     public String registerUserAdmin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute Users users ) throws Exception {
 
         /*OVAL VALIDATOR */
@@ -141,7 +141,7 @@ public class UserController {
         return "redirect:/uc/selectUsers.do";
     }
 
-    @RequestMapping(value = "/selectUsers.do")
+    @RequestMapping(value = "selectUsers.do")
     public String selectUsers(HttpServletRequest request, HttpServletResponse response, @ModelAttribute Users users)
     {
         request.setAttribute("Users", userService.getAll(Users.class));
