@@ -77,7 +77,7 @@ public class UserController {
 
             text = mrequest.getParameter("password").getBytes("ISO-8859-1");
             value = new String(text, "UTF-8");
-            if (value.equals("") || value == null){ 
+            if (value.equals("") || value == null){
                 return "error";
             } else {
                 try {
